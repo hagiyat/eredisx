@@ -1,5 +1,7 @@
 # Eredisx
 
+[![Build Status](https://travis-ci.org/hagiyat/eredisx.svg?branch=master)](https://travis-ci.org/hagiyat/eredisx)
+
 Eredisx is a library for writing in Elixir seems syntax an API of Redis.
 Inspired from [redis-objects](https://github.com/nateware/redis-objects).
 
