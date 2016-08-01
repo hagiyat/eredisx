@@ -23,11 +23,15 @@ defmodule Eredisx.Model.Sequence do
           今の番号取得
           """
           def current_sequence do
-            {:ok, seq} = Exredis.Api.String.get(unquote(opts[:sequence]), unquote(if(opts[:repo], do: [repo: opts[:repo]], else: [])))
+            {:ok, seq} = Exredisx.Api.String.get(unquote(opts[:sequence]), unquote(if(opts[:repo], do: [repo: opts[:repo]], else: [])))
             seq
           end
 
           def generate_key, do: next_sequence |> key
+        end
+      else
+        def key do
+          unquote(opts[:keyformat])
         end
       end
     end
