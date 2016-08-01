@@ -23,7 +23,6 @@ defmodule Eredisx.ApiBuilder do
         """
         def unquote(api)(unquote_splicing(args ++ List.wrap(option_arg))) do
           repo = Keyword.get(options, :repo) || unquote(default_repo || :default)
-          IO.inspect [__MODULE__, repo]
           options = Keyword.drop(options, [:repo])
 
           except_options = unquote(api_options)
