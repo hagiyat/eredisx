@@ -18,7 +18,7 @@ defmodule Eredisx.Mixfile do
 
   defp deps do
     [
-      {:eredis,  ">= 1.0.8"},
+      {:eredis,  "~> 1.0.8"},
       {:poolboy, "~> 1.5"},
       {:ex_doc, "~> 0.10", only: :docs},
       {:earmark, "~> 0.1", only: :docs}
