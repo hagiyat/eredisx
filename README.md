@@ -10,7 +10,7 @@ Here is an example:
 ```
 # In your config/config.exs file
 config :my_app, :eredisx_repos, [:default, :sub_table]
-config :my_app, :
+config :my_app, MyApp.MyRepo
   repo: :default,
   pool_size: 10,
   pool_max_overflow: 15,
