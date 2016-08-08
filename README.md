@@ -69,10 +69,14 @@ end
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
-
   1. Add eredisx to your list of dependencies in `mix.exs`:
 
+        def deps do
+          [{:eredisx, git: "git@github.com:hagiyat/eredisx.git"}]
+        end
+
+  **If [available in Hex](https://hex.pm/docs/publish)**, the package can be installed as:
+  
         def deps do
           [{:eredisx, "~> 0.0.1"}]
         end
