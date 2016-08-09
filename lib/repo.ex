@@ -99,9 +99,9 @@ defmodule Eredisx.Repo do
       """
       defmacro transaction(block) do
         quote do
-          start_transaction
+          __MODULE__.start_transaction
           unquote(Keyword.get(block, :do, nil))
-          {:ok, result} = end_transaction
+          {:ok, result} = __MODULE__.end_transaction
 
           errors = result |> Enum.filter(fn(v) -> Regex.match?(~r/\Aerr /i, v) end)
           {if(length(errors) > 0, do: :error, else: :ok), result}
