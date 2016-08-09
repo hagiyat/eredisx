@@ -23,7 +23,7 @@ defmodule Eredisx.Client do
 
   def end_transaction(opts \\ []) do
     commands = commands_from_agent(agent_name)
-    pid = Keyword.get(opts, :pid) || :eredis.start_link
+    pid = Keyword.get(opts, :pid) || (:eredis.start_link |> elem(1))
     result = for [api|args] <- commands ++ [["exec"]] do
       query(api, args, pid: pid)
     end
