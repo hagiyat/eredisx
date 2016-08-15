@@ -103,7 +103,11 @@ defmodule Eredisx.Repo do
           unquote(Keyword.get(block, :do, nil))
           {:ok, result} = end_transaction
 
-          errors = result |> Enum.filter(fn(v) -> Regex.match?(~r/\Aerr /i, v) end)
+          errors = 
+            case result do
+              :undefined -> [:error]
+              r -> r |> Enum.filter(fn(v) -> Regex.match?(~r/\Aerr /i, v) end)
+            end
           {if(length(errors) > 0, do: :error, else: :ok), result}
         end
       end
